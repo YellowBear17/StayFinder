@@ -1,0 +1,119 @@
+========================================
+stayFinder - QUICK START GUIDE
+========================================
+
+YOUR SITUATION:
+- You have Java 21 installed ✓
+- You have LDPlayer emulator ✓
+- Android SDK is not found in your system ✗
+
+EASIEST SOLUTION: Use Android Studio
+========================================
+
+STEP 1: Install Android Studio (if not installed)
+--------------------------------------------------
+1. Download from: https://developer.android.com/studio
+2. Install with default settings
+3. During setup, it will download Android SDK automatically
+
+STEP 2: Open Project in Android Studio
+--------------------------------------------------
+1. Launch Android Studio
+2. Click "Open" (or File → Open)
+3. Navigate to: C:\android\Android\Registration
+4. Click OK
+5. Wait for Gradle sync (may take 5-10 minutes first time)
+6. If prompted to update Gradle or SDK, click "Update"
+
+STEP 3: Setup LDPlayer
+--------------------------------------------------
+1. Start LDPlayer emulator
+2. In LDPlayer, click menu (≡) → Settings → Other settings
+3. Enable "ADB debugging" (toggle ON)
+4. Note the port (usually 5555)
+
+STEP 4: Connect LDPlayer to Android Studio
+--------------------------------------------------
+1. In Android Studio, click device dropdown (top toolbar)
+2. Click "Pair Devices Using Wi-Fi"
+3. Or manually connect:
+   - Open Terminal in Android Studio (bottom)
+   - Type: adb connect 127.0.0.1:5555
+   - Press Enter
+
+STEP 5: Run the App
+--------------------------------------------------
+1. In Android Studio, select LDPlayer from device dropdown
+2. Click the green Run button (▶) or press Shift+F10
+3. App will build and install automatically
+4. App will launch on LDPlayer
+
+========================================
+
+ALTERNATIVE: Install Android SDK Manually
+========================================
+
+If you don't want to use Android Studio:
+
+1. Download Android Command Line Tools:
+   https://developer.android.com/studio#command-line-tools-only
+
+2. Extract to: C:\Android\Sdk
+
+3. Open PowerShell as Administrator and run:
+   cd C:\Android\Sdk\cmdline-tools\bin
+   .\sdkmanager.bat --sdk_root=C:\Android\Sdk "platform-tools" "platforms;android-34" "build-tools;34.0.0"
+
+4. Update local.properties in your project:
+   sdk.dir=C:\\Android\\Sdk
+
+5. Run: .\gradlew.bat assembleDebug
+
+6. Install APK:
+   C:\Android\Sdk\platform-tools\adb.exe connect 127.0.0.1:5555
+   C:\Android\Sdk\platform-tools\adb.exe install app\build\outputs\apk\debug\app-debug.apk
+
+========================================
+
+TESTING THE APP
+========================================
+
+Once installed:
+
+1. Open "My Application" in LDPlayer
+2. You'll see the Login screen with stayFinder branding
+3. Click "Create an account"
+4. Fill in the registration form:
+   - First name: Test
+   - Last name: User
+   - Contact: 1234567890
+   - Email: test@example.com
+   - Password: test123
+5. Click "Create account"
+6. You'll be redirected to login
+7. Login with your credentials
+8. You'll see your profile on the Home screen
+
+The SQLite database is working in the background!
+
+========================================
+
+TROUBLESHOOTING
+========================================
+
+Build fails:
+- Make sure you have internet connection (Gradle downloads dependencies)
+- Try: .\gradlew.bat clean build
+
+LDPlayer not detected:
+- Make sure ADB debugging is enabled in LDPlayer
+- Restart LDPlayer
+- Try: adb kill-server then adb start-server
+
+App crashes:
+- Check LDPlayer Android version (should be 7.0+)
+- Check Logcat in Android Studio for error messages
+
+Need help?
+- Check Android Studio's "Build" tab for detailed errors
+- Check "Logcat" tab for runtime errors

@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Image / Photo Strip -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="280dp">
+
+                <!-- Horizontal photo strip -->
+                <HorizontalScrollView
+                    android:id="@+id/detail_photo_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/detail_photo_strip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"/>
+                </HorizontalScrollView>
+
+                <!-- Placeholder when no images -->
+                <LinearLayout
+                    android:id="@+id/detail_image_placeholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="#F0F0F0"
+                    android:visibility="gone">
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="56sp"/>
+                </LinearLayout>
+
+                <!-- Photo count badge -->
+                <TextView
+                    android:id="@+id/detail_photo_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="10dp"
+                    android:textSize="11sp"
+                    android:textColor="#FFFFFF"
+                    android:background="#88000000"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:visibility="gone"/>
+
+                <!-- Back button -->
+                <LinearLayout
+                    android:id="@+id/btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="12dp"
+                    android:background="@drawable/avatar_circle"
+                    android:gravity="center"
+                    android:elevation="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="←"
+                        android:textSize="18sp"
+                        android:textColor="#222222"/>
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- Title + Rating -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/detail_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Listing Title"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#222222"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="★ New"
+                        android:textSize="14sp"
+                        android:textColor="#222222"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/detail_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Location"
+                    android:textSize="14sp"
+                    android:textColor="#717171"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Type + Details -->
+                <TextView
+                    android:id="@+id/detail_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Entire home"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"/>
+
+                <TextView
+                    android:id="@+id/detail_specs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 guests · 1 bedroom · 1 bed · 1 bath"
+                    android:textSize="14sp"
+                    android:textColor="#717171"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Host Section -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <!-- Avatar circle with initial or photo -->
+                    <FrameLayout
+                        android:id="@+id/host_avatar"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp">
+
+                        <!-- Photo (shown when available) -->
+                        <ImageView
+                            android:id="@+id/host_avatar_image"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:scaleType="centerCrop"
+                            android:background="@drawable/avatar_circle_large"
+                            android:visibility="gone"/>
+
+                        <!-- Initial fallback -->
+                        <LinearLayout
+                            android:id="@+id/host_avatar_fallback"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/avatar_circle"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/host_avatar_initial"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="H"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textColor="#FFFFFF"/>
+                        </LinearLayout>
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="12dp">
+
+                        <TextView
+                            android:id="@+id/detail_host_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Hosted by Host"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:textColor="#222222"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Host"
+                            android:textSize="12sp"
+                            android:textColor="#717171"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Description -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About this place"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textColor="#484848"
+                    android:lineSpacingMultiplier="1.4"/>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Amenities -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What this place offers"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/detail_amenities"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="14sp"
+                    android:textColor="#484848"
+                    android:lineSpacingMultiplier="1.6"/>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="16dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Availability Calendar -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Availability"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Month navigation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/cal_prev"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="‹"
+                        android:textSize="22sp"
+                        android:textColor="#222222"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"/>
+
+                    <TextView
+                        android:id="@+id/cal_month_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="March 2026"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="#222222"
+                        android:gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/cal_next"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:text="›"
+                        android:textSize="22sp"
+                        android:textColor="#222222"
+                        android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+                <!-- Day-of-week headers -->
+                <LinearLayout
+                    android:id="@+id/cal_dow_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Su" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mo" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tu" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="We" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Th" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fr" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sa" android:textSize="11sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                </LinearLayout>
+
+                <!-- Calendar grid (rows injected programmatically) -->
+                <LinearLayout
+                    android:id="@+id/cal_grid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+
+                <!-- Legend -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="#FF385C"
+                        android:layout_marginRight="6dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Reserved"
+                        android:textSize="12sp"
+                        android:textColor="#484848"
+                        android:layout_marginRight="16dp"/>
+
+                    <View
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:background="#FFC107"
+                        android:layout_marginRight="6dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Under maintenance"
+                        android:textSize="12sp"
+                        android:textColor="#484848"/>
+                </LinearLayout>
+
+                <!-- Divider -->
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="20dp" android:layout_marginBottom="16dp"/>
+
+                <!-- Reviews Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="4dp">
+
+                    <TextView
+                        android:id="@+id/detail_reviews_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Reviews"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#222222"/>
+
+                    <TextView
+                        android:id="@+id/btn_write_review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:text="Write a review"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF"
+                        android:background="@drawable/btn_view_details"
+                        android:gravity="center"
+                        android:paddingLeft="14dp"
+                        android:paddingRight="14dp"
+                        android:visibility="gone"
+                        android:clickable="true"
+                        android:focusable="true"/>
+                </LinearLayout>
+
+                <!-- Avg rating summary -->
+                <TextView
+                    android:id="@+id/detail_avg_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="★ No reviews yet"
+                    android:textSize="14sp"
+                    android:textColor="#FF9800"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Reviews list (injected programmatically) -->
+                <LinearLayout
+                    android:id="@+id/reviews_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Reserve Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₱0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="per night"
+                android:textSize="12sp"
+                android:textColor="#717171"/>
+        </LinearLayout>
+
+        <!-- Message Host button (guests only, hidden for hosts) -->
+        <TextView
+            android:id="@+id/btn_message_host"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="💬 Message"
+            android:textSize="13sp"
+            android:textColor="#FF385C"
+            android:background="@drawable/rounded_edittext_dark"
+            android:gravity="center"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <Button
+            android:id="@+id/btn_reserve"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:text="Reserve"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_view_details"/>
+    </LinearLayout>
+
+</LinearLayout>

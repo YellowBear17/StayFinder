@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/inbox_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Main Content -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F7F7F7">
+
+        <!-- Toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:background="#FFFFFF"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="←"
+                android:textSize="22sp"
+                android:textColor="#222222"
+                android:paddingRight="12dp"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/inbox_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Inbox"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+
+            <!-- Hamburger button — only shown for hosts -->
+            <TextView
+                android:id="@+id/btn_inbox_menu"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="☰"
+                android:textSize="22sp"
+                android:textColor="#222222"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- Content scroll -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/inbox_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="24dp"/>
+        </ScrollView>
+
+        <include layout="@layout/layout_bottom_nav"/>
+
+    </LinearLayout>
+
+    <!-- Left Sidebar Drawer (host only) -->
+    <LinearLayout
+        android:id="@+id/inbox_nav_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:elevation="8dp">
+
+        <!-- Drawer Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FF385C"
+            android:padding="20dp"
+            android:paddingTop="40dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📬"
+                android:textSize="32sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inbox"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter by category"
+                android:textSize="12sp"
+                android:textColor="#FFCCCC"
+                android:layout_marginTop="2dp"/>
+        </LinearLayout>
+
+        <!-- Nav Items -->
+        <LinearLayout
+            android:id="@+id/nav_inbox_all"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="@drawable/nav_item_selected"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="📋" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="All" android:textSize="15sp" android:textColor="#FF385C"
+                android:textStyle="bold" android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_all" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#FF385C" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+        <LinearLayout
+            android:id="@+id/nav_inbox_booking"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="🔔" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Booking Requests" android:textSize="15sp" android:textColor="#222222"
+                android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_booking" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#3498DB" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+        <LinearLayout
+            android:id="@+id/nav_inbox_payment"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="💳" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Payments" android:textSize="15sp" android:textColor="#222222"
+                android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_payment" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#00A699" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+        <LinearLayout
+            android:id="@+id/nav_inbox_messages"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="💬" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Messages" android:textSize="15sp" android:textColor="#222222"
+                android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_messages" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#FF385C" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+        <!-- Guest-only nav items -->
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0"/>
+
+        <LinearLayout
+            android:id="@+id/nav_inbox_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="🔔" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Notifications" android:textSize="15sp" android:textColor="#222222"
+                android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_notifications" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#FF9800" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+        <View android:id="@+id/divider_guest_booking" android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#F0F0F0" android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/nav_inbox_booking_updates"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <TextView android:layout_width="28dp" android:layout_height="wrap_content" android:text="🧳" android:textSize="18sp"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:text="Booking Updates" android:textSize="15sp" android:textColor="#222222"
+                android:layout_marginLeft="12dp"/>
+            <TextView android:id="@+id/badge_booking_updates" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:visibility="gone" android:textSize="11sp" android:textColor="#FFFFFF"
+                android:background="#3498DB" android:paddingLeft="6dp" android:paddingRight="6dp"
+                android:paddingTop="2dp" android:paddingBottom="2dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
+

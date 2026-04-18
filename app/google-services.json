@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "772094428086",
+    "project_id": "stayfinder-60e76",
+    "storage_bucket": "stayfinder-60e76.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772094428086:android:6c028b1ab6ffcceaa57717",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772094428086-b1l993hbh01m93ai31tepsthtrq5vik8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication",
+            "certificate_hash": "b042798c541263893589b3210db11eff90f7f866"
+          }
+        },
+        {
+          "client_id": "772094428086-ocim6t7ut3n8icf2e0tmetmk3jjjoiar.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh_FhKJn3d_gt0Lga--3aQT1OJaAXYSro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772094428086-ocim6t7ut3n8icf2e0tmetmk3jjjoiar.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

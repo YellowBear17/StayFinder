@@ -1,0 +1,69 @@
+========================================
+stayFinder - Setup Instructions
+========================================
+
+OPTION 1: EASIEST METHOD (Drag & Drop)
+========================================
+1. Double-click "build-apk.bat"
+2. Wait for build to complete
+3. Open LDPlayer emulator
+4. Drag "app\build\outputs\apk\debug\app-debug.apk" into LDPlayer window
+5. Click "Install" when prompted
+6. Find and open "My Application" in LDPlayer
+
+OPTION 2: AUTOMATED INSTALLATION
+========================================
+1. Start LDPlayer emulator
+2. In LDPlayer: Click menu (≡) → Settings → Other settings
+3. Enable "ADB debugging"
+4. Double-click "run-on-ldplayer.bat"
+5. Wait for build and installation
+6. App will appear in LDPlayer
+
+OPTION 3: USING ANDROID STUDIO
+========================================
+1. Open Android Studio
+2. File → Open → Select this project folder
+3. Wait for Gradle sync
+4. Start LDPlayer emulator
+5. Enable ADB debugging in LDPlayer settings
+6. Click Run button (▶) in Android Studio
+7. Select LDPlayer device from list
+
+TROUBLESHOOTING
+========================================
+If build fails:
+- Make sure you have Java JDK installed
+- Check internet connection (Gradle needs to download dependencies)
+
+If LDPlayer not detected:
+- Make sure LDPlayer is running
+- Enable ADB debugging in LDPlayer settings
+- Restart LDPlayer
+
+If app crashes:
+- Check LDPlayer Android version (should be Android 7.0 or higher)
+- Try lowering minSdk in app/build.gradle
+
+TESTING THE APP
+========================================
+1. Open the app in LDPlayer
+2. You'll see the Login page
+3. Click "Create an account"
+4. Fill in registration form:
+   - First name: John
+   - Last name: Doe
+   - Contact: 1234567890
+   - Email: john@example.com
+   - Password: password123
+5. Click "Create account"
+6. Login with the credentials you just created
+7. You should see your profile on the Home screen
+
+DATABASE LOCATION
+========================================
+The SQLite database is stored on the device at:
+/data/data/com.example.myapplication/databases/stayfinder.db
+
+You can view it using Android Studio's Device File Explorer
+or using ADB shell commands.

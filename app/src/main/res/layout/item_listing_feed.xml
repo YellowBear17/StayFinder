@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="24dp"
+    android:background="#FFFFFF">
+
+    <!-- Image Container -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp">
+
+        <!-- Horizontal photo strip -->
+        <HorizontalScrollView
+            android:id="@+id/feed_photo_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/feed_photo_strip"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"/>
+        </HorizontalScrollView>
+
+        <!-- Placeholder when no image -->
+        <LinearLayout
+            android:id="@+id/feed_image_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="#F0F0F0"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🏠"
+                android:textSize="48sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No photo"
+                android:textSize="13sp"
+                android:textColor="#AAAAAA"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Page indicator dots -->
+        <LinearLayout
+            android:id="@+id/feed_page_dots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:visibility="gone"/>
+
+        <!-- Heart / Wishlist button -->
+        <LinearLayout
+            android:id="@+id/btn_wishlist"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="12dp"
+            android:background="@drawable/heart_bg"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/btn_wishlist_heart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♡"
+                android:textSize="18sp"
+                android:textColor="#FFFFFF"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- Info Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="4dp">
+
+        <!-- Location + Rating Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/feed_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ "
+                android:textSize="13sp"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:id="@+id/feed_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New"
+                android:textSize="13sp"
+                android:textColor="#222222"/>
+        </LinearLayout>
+
+        <!-- Type -->
+        <TextView
+            android:id="@+id/feed_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entire home"
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginTop="2dp"/>
+
+        <!-- Details -->
+        <TextView
+            android:id="@+id/feed_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 guests · 1 bed · 1 bath"
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginTop="1dp"/>
+
+        <!-- Host Name -->
+        <TextView
+            android:id="@+id/feed_host_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hosted by Host"
+            android:textSize="12sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginTop="2dp"/>
+
+        <!-- Likes + Rating row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:id="@+id/feed_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="♥ 0"
+                android:textSize="12sp"
+                android:textColor="#FF385C"
+                android:layout_marginRight="12dp"/>
+
+            <TextView
+                android:id="@+id/feed_avg_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="★ No reviews"
+                android:textSize="12sp"
+                android:textColor="#FF9800"/>
+        </LinearLayout>
+
+        <!-- Price Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/feed_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="₱1,200 total"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:id="@+id/btn_view_details"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="View Details"
+                android:textSize="13sp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/btn_view_details"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Thin divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"/>
+
+</LinearLayout>

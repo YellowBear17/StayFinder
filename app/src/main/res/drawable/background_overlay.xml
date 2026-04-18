@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background Image -->
+    <item>
+        <bitmap
+            android:src="@drawable/background_keys"
+            android:gravity="fill"
+            android:tileMode="disabled" />
+    </item>
+    <!-- Dark overlay for better text visibility -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#70000000"/>
+        </shape>
+    </item>
+</layer-list>

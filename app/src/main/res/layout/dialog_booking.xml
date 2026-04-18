@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select your dates"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Inline mini calendar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#F7F7F7"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp">
+
+            <!-- Month nav -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/booking_cal_prev"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="‹"
+                    android:textSize="22sp"
+                    android:textColor="#222222"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"/>
+
+                <TextView
+                    android:id="@+id/booking_cal_month"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/booking_cal_next"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="›"
+                    android:textSize="22sp"
+                    android:textColor="#222222"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <!-- Day of week headers -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="4dp">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Su" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Mo" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tu" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="We" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Th" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Fr" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Sa" android:textSize="10sp" android:textColor="#AAAAAA" android:gravity="center"/>
+            </LinearLayout>
+
+            <!-- Calendar grid injected programmatically -->
+            <LinearLayout
+                android:id="@+id/booking_cal_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+            <!-- Legend -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <View android:layout_width="10dp" android:layout_height="10dp" android:background="#FF385C" android:layout_marginRight="4dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Reserved" android:textSize="10sp" android:textColor="#484848" android:layout_marginRight="12dp"/>
+
+                <View android:layout_width="10dp" android:layout_height="10dp" android:background="#FFC107" android:layout_marginRight="4dp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Maintenance" android:textSize="10sp" android:textColor="#484848" android:layout_marginRight="12dp"/>
+
+                <View android:layout_width="10dp" android:layout_height="10dp" android:background="#FF385C" android:layout_marginRight="4dp"
+                    android:alpha="0.3"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Selected range" android:textSize="10sp" android:textColor="#484848"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Selected dates display -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_edittext_dark"
+                android:padding="12dp"
+                android:layout_marginRight="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHECK-IN" android:textSize="9sp" android:textColor="#717171"/>
+                <TextView android:id="@+id/txt_checkin_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tap a date" android:textSize="13sp" android:textColor="#222222"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_edittext_dark"
+                android:padding="12dp"
+                android:layout_marginLeft="6dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHECK-OUT" android:textSize="9sp" android:textColor="#717171"/>
+                <TextView android:id="@+id/txt_checkout_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Tap a date" android:textSize="13sp" android:textColor="#222222"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Summary -->
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginBottom="12dp"/>
+
+        <TextView
+            android:id="@+id/txt_nights_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="13sp"
+            android:textColor="#717171"/>
+
+        <TextView
+            android:id="@+id/txt_total_summary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+</ScrollView>

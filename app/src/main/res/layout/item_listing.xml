@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_card"
+    android:layout_marginBottom="12dp">
+
+    <!-- Card Body -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Property Type Badge + Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Type Badge -->
+            <TextView
+                android:id="@+id/item_type_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Entire home"
+                android:textSize="10sp"
+                android:textColor="#FF385C"
+                android:background="@drawable/type_badge_bg"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Listing Title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textColor="#222222"
+                android:maxLines="1"
+                android:ellipsize="end"/>
+
+            <TextView
+                android:id="@+id/item_type_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Location"
+                android:textSize="12sp"
+                android:textColor="#717171"
+                android:layout_marginTop="3dp"/>
+
+            <TextView
+                android:id="@+id/item_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 guests · 1 bed · 1 bath"
+                android:textSize="12sp"
+                android:textColor="#717171"
+                android:layout_marginTop="3dp"/>
+        </LinearLayout>
+
+        <!-- Price + Actions -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:layout_marginLeft="12dp">
+
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₱0"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/ night"
+                android:textSize="11sp"
+                android:textColor="#717171"
+                android:layout_marginTop="-2dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#F0F0F0"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"/>
+
+    <!-- Action Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/btn_edit_listing"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Edit"
+            android:textSize="13sp"
+            android:textColor="#222222"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="#E0E0E0"/>
+
+        <TextView
+            android:id="@+id/btn_calendar_listing"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Calendar"
+            android:textSize="13sp"
+            android:textColor="#007AFF"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="20dp"
+            android:background="#E0E0E0"/>
+
+        <TextView
+            android:id="@+id/btn_delete_listing"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Delete"
+            android:textSize="13sp"
+            android:textColor="#FF385C"
+            android:gravity="center"
+            android:background="?attr/selectableItemBackground"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:id="@+id/btn_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="← Back"
+                android:textSize="14sp"
+                android:textColor="#FF385C"
+                android:layout_marginRight="12dp"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/txt_form_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create a Listing"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#222222"/>
+        </LinearLayout>
+
+        <!-- Section: Property Type -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What type of place will guests have?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Spinner wrapped with dropdown arrow indicator -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginBottom="24dp">
+
+            <Spinner
+                android:id="@+id/spinner_property_type"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/rounded_edittext_dark"
+                android:paddingLeft="12dp"
+                android:paddingRight="44dp"/>
+
+            <!-- Dropdown arrow -->
+            <TextView
+                android:layout_width="44dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:text="▼"
+                android:textSize="12sp"
+                android:textColor="#717171"
+                android:gravity="center"
+                android:clickable="false"
+                android:focusable="false"/>
+        </FrameLayout>
+
+        <!-- Section: Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listing title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Catch guests' attention with a short, descriptive title."
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/input_title"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="e.g. Cozy beachfront villa with pool"
+            android:inputType="textCapSentences"
+            android:background="@drawable/rounded_edittext_dark"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textSize="14sp"
+            android:textColor="#222222"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Section: Location -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Where is your place located?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/input_location"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="City, Province"
+            android:inputType="textCapWords"
+            android:background="@drawable/rounded_edittext_dark"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textSize="14sp"
+            android:textColor="#222222"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Section: Basics -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Share some basics about your place"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Guests -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Guests"
+                android:textSize="15sp"
+                android:textColor="#222222"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btn_guests_minus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+
+                <TextView
+                    android:id="@+id/txt_guests"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_guests_plus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bedrooms -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bedrooms"
+                android:textSize="15sp"
+                android:textColor="#222222"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btn_bedrooms_minus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+
+                <TextView
+                    android:id="@+id/txt_bedrooms"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_bedrooms_plus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Beds -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Beds"
+                android:textSize="15sp"
+                android:textColor="#222222"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btn_beds_minus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+
+                <TextView
+                    android:id="@+id/txt_beds"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_beds_plus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bathrooms -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bathrooms"
+                android:textSize="15sp"
+                android:textColor="#222222"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/btn_baths_minus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="-"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+
+                <TextView
+                    android:id="@+id/txt_baths"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textSize="16sp"
+                    android:textColor="#222222"
+                    android:gravity="center"/>
+
+                <Button
+                    android:id="@+id/btn_baths_plus"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:text="+"
+                    android:textSize="18sp"
+                    android:background="@drawable/counter_btn"
+                    android:textColor="#222222"
+                    android:padding="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Section: Amenities -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What amenities do you offer?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="12dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <CheckBox android:id="@+id/chk_wifi" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Wifi" android:textColor="#222222"/>
+                <CheckBox android:id="@+id/chk_kitchen" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Kitchen" android:textColor="#222222"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <CheckBox android:id="@+id/chk_parking" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Free parking" android:textColor="#222222"/>
+                <CheckBox android:id="@+id/chk_pool" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Pool" android:textColor="#222222"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <CheckBox android:id="@+id/chk_ac" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Air conditioning" android:textColor="#222222"/>
+                <CheckBox android:id="@+id/chk_tv" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="TV" android:textColor="#222222"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <CheckBox android:id="@+id/chk_washer" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Washer" android:textColor="#222222"/>
+                <CheckBox android:id="@+id/chk_workspace" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Workspace" android:textColor="#222222"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Section: Description -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Describe your place"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/input_description"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Tell guests what makes your place special..."
+            android:inputType="textMultiLine|textCapSentences"
+            android:gravity="top"
+            android:background="@drawable/rounded_edittext_dark"
+            android:padding="14dp"
+            android:textSize="14sp"
+            android:textColor="#222222"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Section: Price -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set your price"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Price per night (₱)"
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/input_price"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:hint="e.g. 1500"
+            android:inputType="numberDecimal"
+            android:background="@drawable/rounded_edittext_dark"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:textSize="14sp"
+            android:textColor="#222222"
+            android:textColorHint="#AAAAAA"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Section: Photos -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add photos of your place"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add up to 10 photos. The first photo will be your cover image."
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Horizontal photo strip -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:id="@+id/photos_strip"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:orientation="horizontal"/>
+        </HorizontalScrollView>
+
+        <!-- Add Photo Button -->
+        <LinearLayout
+            android:id="@+id/btn_pick_image"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/rounded_edittext_dark"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📷  "
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add photo from gallery"
+                android:textSize="14sp"
+                android:textColor="#222222"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_image_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No photos selected (optional)"
+            android:textSize="12sp"
+            android:textColor="#AAAAAA"
+            android:layout_marginBottom="28dp"/>
+
+        <!-- Submit -->
+        <Button
+            android:id="@+id/btn_submit_listing"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Publish Listing"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_view_details"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

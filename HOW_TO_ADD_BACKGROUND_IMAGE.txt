@@ -1,0 +1,85 @@
+========================================
+HOW TO ADD YOUR BACKGROUND IMAGE
+========================================
+
+STEP 1: Prepare Your Image
+---------------------------
+- Use the keys/room image from your design
+- Recommended size: 1080x1920 pixels (or similar portrait ratio)
+- Format: JPG or PNG
+- Name it: background_keys.jpg (or .png)
+
+STEP 2: Copy Image to Project
+------------------------------
+Copy your image file to this folder:
+app\src\main\res\drawable\
+
+Full path should be:
+app\src\main\res\drawable\background_keys.jpg
+
+STEP 3: Rebuild the App
+-----------------------
+Run this command:
+.\gradlew.bat assembleDebug
+
+STEP 4: Reinstall on LDPlayer
+------------------------------
+Method 1 (Drag & Drop):
+- Drag app\build\outputs\apk\debug\app-debug.apk into LDPlayer
+
+Method 2 (Automated):
+- Run: install-to-ldplayer.bat
+
+========================================
+ALTERNATIVE: Use a Different Image Name
+========================================
+
+If you want to use a different filename:
+
+1. Place your image in: app\src\main\res\drawable\
+   Example: app\src\main\res\drawable\my_background.png
+
+2. Open: app\src\main\res\drawable\background_overlay.xml
+
+3. Change this line:
+   android:src="@drawable/background_keys"
+   
+   To:
+   android:src="@drawable/my_background"
+
+4. Rebuild: .\gradlew.bat assembleDebug
+
+========================================
+CURRENT SETUP:
+========================================
+
+Right now, the app uses a gradient background.
+Once you add background_keys.jpg (or .png), it will:
+- Display your image as the background
+- Add a semi-transparent dark overlay
+- Keep text readable over the image
+
+The overlay darkness can be adjusted in:
+app\src\main\res\drawable\background_overlay.xml
+
+Change this line to adjust transparency:
+<solid android:color="#80000000"/>
+         #80 = 50% transparent (00-FF range)
+         000000 = black color
+
+Examples:
+#40000000 = 25% dark overlay (lighter)
+#A0000000 = 63% dark overlay (darker)
+#CC000000 = 80% dark overlay (very dark)
+
+========================================
+TIPS:
+========================================
+
+- Keep image file size under 2MB for better performance
+- Use JPG for photos (smaller file size)
+- Use PNG if you need transparency
+- Image will automatically scale to fit screen
+- The overlay helps text remain readable
+
+========================================

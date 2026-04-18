@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_card"
+    android:layout_marginBottom="16dp">
+
+    <!-- Image -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <ImageView
+            android:id="@+id/trip_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="#E8E8E8"/>
+
+        <LinearLayout
+            android:id="@+id/trip_image_placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#F0F0F0">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🏠" android:textSize="40sp"/>
+        </LinearLayout>
+
+        <!-- Status Badge -->
+        <TextView
+            android:id="@+id/trip_status_badge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:text="Confirmed"
+            android:textSize="11sp"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/status_badge_confirmed"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"/>
+    </FrameLayout>
+
+    <!-- Info -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/trip_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Listing Title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#222222"/>
+
+        <TextView
+            android:id="@+id/trip_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📍 Location"
+            android:textSize="13sp"
+            android:textColor="#717171"
+            android:layout_marginTop="3dp"/>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#F0F0F0" android:layout_marginTop="12dp" android:layout_marginBottom="12dp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHECK-IN" android:textSize="10sp" android:textColor="#717171"/>
+                <TextView android:id="@+id/trip_checkin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—" android:textSize="14sp" android:textStyle="bold" android:textColor="#222222" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#E0E0E0" android:layout_marginLeft="8dp" android:layout_marginRight="8dp"/>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="CHECK-OUT" android:textSize="10sp" android:textColor="#717171"/>
+                <TextView android:id="@+id/trip_checkout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="—" android:textSize="14sp" android:textStyle="bold" android:textColor="#222222" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="end">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TOTAL" android:textSize="10sp" android:textColor="#717171"/>
+                <TextView android:id="@+id/trip_total" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="₱0" android:textSize="14sp" android:textStyle="bold" android:textColor="#222222" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Cancel button (only for upcoming) -->
+        <TextView
+            android:id="@+id/btn_cancel_booking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel reservation"
+            android:textSize="13sp"
+            android:textColor="#FF385C"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:clickable="true"
+            android:focusable="true"/>
+    </LinearLayout>
+</LinearLayout>
